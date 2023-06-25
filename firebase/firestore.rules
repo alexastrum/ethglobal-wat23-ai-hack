@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /checkoutSessions/{session}{
+      allow read: if true;//request.auth.uid == request.resource.data.userId
+    }
+    match /{document=**} {
+      allow write: if true;
+    }
+    match /nftDrops/{id} {
+      allow read: if true;
+    }
+    match /nftTokens/{id} {
+      allow read: if true;
+    }
+    match /news/{id} {
+      allow read: if true;
+    }
+    match /artists/{id} {
+    allow read: if true;
+    }
+    match /exhibition/{id} {
+    allow read: if true;
+    }
+    match /artworks/{id} {
+    allow read: if true;
+    }
+    match /data/{id} {
+    allow read: if true;
+    }
+    match /configs/{id} {
+    allow read: if true;
+    }
+    match /saleHistory/{id}{
+    allow read: if true;
+    }
+    match /curators/{id}{
+    allow read: if true;
+    }
+    match /users/{id}{
+    allow read: if true;
+    }
+  }
+}
