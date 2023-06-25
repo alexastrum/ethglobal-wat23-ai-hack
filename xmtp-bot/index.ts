@@ -11,6 +11,7 @@ const model = new OpenAI({
 
 run(async (context) => {
   const messageBody = context.message.content;
+  await context.reply("Thinking...");
   const msg = await model.call(messageBody);
   await context.reply(msg.trim());
 });

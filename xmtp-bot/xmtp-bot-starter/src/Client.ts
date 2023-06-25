@@ -10,7 +10,7 @@ export default async function createClient(): Promise<Client> {
   if (key) {
     wallet = new Wallet(key);
   } else {
-    wallet = Wallet.createRandom();
+    wallet = Wallet.createRandom() as any as Wallet;
   }
 
   if (process.env.XMTP_ENV !== "production" && process.env.XMTP_ENV !== "dev") {
